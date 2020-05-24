@@ -31,12 +31,32 @@ function buildTable(data) {
 function handleClick() {
     // Grab the datetime value from the filter
     let date = d3.select("#datetime").property("value");
+    let city = d3.select("#city").property("value");
+    let state = d3.select("#state").property("value");
+    let country = d3.select("#country").property("value");
+    let shape = d3.select("#shape").property("value");
     let filteredData = tableData;
 
     // Check to see if date was entered & filter data using date
     if (date) {
         // Apply filter to table data to only keep matchin rows
         filteredData = filteredData.filter(row => row.datetime === date);
+    };
+    if (city) {
+        // Apply filter to table data to only keep matchin rows
+        filteredData = filteredData.filter(row => row.city === city);
+    };
+    if (state) {
+        // Apply filter to table data to only keep matchin rows
+        filteredData = filteredData.filter(row => row.state === state);
+    };
+    if (country) {
+        // Apply filter to table data to only keep matchin rows
+        filteredData = filteredData.filter(row => row.country === country);
+    };
+    if (shape) {
+        // Apply filter to table data to only keep matchin rows
+        filteredData = filteredData.filter(row => row.shape === shape);
     };
 
     // Rebuild the table using the filtered data
